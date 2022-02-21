@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+
+  <body>
+    <!--DO NOT CHANGE THIS ID's-->
+
+    <div id="container">
+      <div id="sidebar">
+        <!--add your sidebar component here-->
+      </div>
+
+      <div id="main">
+        <!--DO NOT CHANGE THIS ID's-->
+        <!--Show the clicked article in detailed format here ONLY-->
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module">
+  import sidebar from "./components/sidebar.js";
+  import { appendArticles } from "./scripts/main.js";
+
+  let sidebarDiv = document.getElementById("sidebar");
+  sidebarDiv.innerHTML = sidebar();
+
+  let parent = document.getElementById("main");
+  let searchbar = document.getElementById("searchbar");
+  searchbar.addEventListener("keypress", (e) => {
+    if (e.key == "Enter") {
+      let query = document.getElementById("searchbar").value;
+      localStorage.setItem("search_term", query);
+      window.location.href = "./search.html";
+    }
+  });
+
+  let item = JSON.parse(localStorage.getItem("article"));
+  // console.log('item:', item);
+
+  display(item);
+
+  function display(el) {
+
+
+
+    let card = document.createElement("div");
+    card.className = "card";
+
+
+    let imgdiv = document.createElement("div");
+    imgdiv.className = "imgDiv";
+    let img = document.createElement("img");
+    img.src = el.urlToImage;
+
+    let infodiv = document.createElement("div");
+    infodiv.className = "infoDiv";
+
+    let title = document.createElement("h1");
+
+    title.innerText = el.title;
+
+    let discr = document.createElement("h4");
+    discr.innerText = el.description;
+
+    let date = document.createElement("h4");
+    date.innerText = `Date: ${el.publishedAt}`;
+
+
+    let content = document.createElement('p');
+    content.innerText = el.content;
+
+    imgdiv.append(img);
+    infodiv.append(title, discr, date,content);
+    card.append(imgdiv, infodiv);
+
+    main.append(card);
+  }
+</script>
+
+<!-- 
+// author: null
+// content: "Indias burgeoning electric vehicle (EV) industry couldnt mine the 2022 Union Budget for many favourable policies except for one: a soon-to-be-implemented battery swapping system with interoperability… [+7225 chars]"
+// description: "Who does battery swapping benefit? And what sort of battery swapping policy would work for India?"
+// publishedAt: "2022-02-10T10:08:21Z"
+// source: {id: null, name: 'Moneycontrol'}
+// title: "Battery swapping: The advantages and disadvantages, explained - Moneycontrol"
+// url: "https://www.moneycontrol.com/news/automobile/battery-swapping-the-advantages-and-disadvantages-explained-8072731.html"
+// urlToImage: "https://images.moneycontrol.com/static-mcnews/2021/12/EV-charging-770x433.jpg"
+// [[Prototype]]: Object -->

@@ -1,0 +1,52 @@
+#container{
+    margin: auto;
+    border: 1px solid gray;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+#sidebar{
+    flex: 1.5;
+    border: 2px solid gray;
+    padding: 10px ;
+}
+#sidebar div{
+    margin-top: 15px ;
+    font-size: 20px;
+
+}
+#sidebar input{
+    margin-top: 15px ;
+     font-size: 20px;
+}
+#main{
+    flex: 8;
+    /* border: 2px solid gray; */
+    padding:20px ;
+    
+}
+.news{
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid gray;
+}
+.news:hover{
+   box-shadow: rgba(17, 17, 26, 0.2) 0px 8px 10px, rgba(17, 17, 26, 0.2) 0px 8px 20px, rgba(17, 17, 26, 0.2) 0px 8px 20px;
+}
+.news .imgDiv{
+    min-width: 30%;
+    max-width: 30%;
+     margin-right: 20px;
+     /* border: 1px solid gray; */
+}
+.news .imgDiv img{
+    width: 100%;
+    /* border: 1px solid gray; */
+   
+}
+.card{
+    width: 90%;
+}
+.card img{
+    width: 100%;
+}
