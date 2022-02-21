@@ -13,11 +13,13 @@
 #sidebar div{
     margin-top: 15px ;
     font-size: 20px;
+    cursor: pointer;
 
 }
 #sidebar input{
     margin-top: 15px ;
      font-size: 20px;
+     cursor: pointer;
 }
 #main{
     flex: 8;
@@ -29,6 +31,7 @@
     display: flex;
     margin-bottom: 20px;
     border: 1px solid gray;
+    cursor: pointer;
 }
 .news:hover{
    box-shadow: rgba(17, 17, 26, 0.2) 0px 8px 10px, rgba(17, 17, 26, 0.2) 0px 8px 20px, rgba(17, 17, 26, 0.2) 0px 8px 20px;
